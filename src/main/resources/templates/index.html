@@ -6,5 +6,42 @@
 </head>
 <body>
 <h1>My Recipes!</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Prep Time</th>
+        <th>Cook Time</th>
+        <th>Source</th>
+        <th>Url</th>
+        <th>Directions</th>
+    </tr>
+    <tr>
+        <td th:text="${recipes[0].id}">123</td>
+        <td th:text="${recipes[0].description}"> Spring in Action</td>
+        <td th:text="${recipes[0].prepTime}">Preptime</td>
+        <td th:text="${recipes[0].cookTime}">1</td>
+        <td th:text="${recipes[0].source}">Source</td>
+        <td th:text="${recipes[0].url}">url</td>
+        <td th:text="${recipes[0].directions}">Todo</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Unit of Measure</th>
+    </tr>
+    <tr th:each="ingredient : ${recipes[0].ingredients}">
+        <td th:text="${ingredient.id}">123</td>
+        <td th:text="${ingredient.description}"> Spring in Action</td>
+        <td th:text="${ingredient.amount}">Preptime</td>
+        <td th:text="${ingredient.uom}">1</td>
+    </tr>
+</table>
+
 </body>
 </html>
