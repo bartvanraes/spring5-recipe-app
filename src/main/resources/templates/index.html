@@ -39,7 +39,7 @@
         <td th:text="${ingredient.id}">123</td>
         <td th:text="${ingredient.description}"> Spring in Action</td>
         <td th:text="${ingredient.amount}">Preptime</td>
-        <td th:text="${ingredient.uom}">1</td>
+        <td th:text="${ingredient.uom.getDescription()}">1</td>
     </tr>
 </table>
 

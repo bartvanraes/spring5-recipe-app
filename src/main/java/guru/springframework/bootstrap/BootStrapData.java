@@ -1,6 +1,7 @@
 package guru.springframework.bootstrap;
 
 import guru.springframework.domain.Ingredient;
+import guru.springframework.domain.Notes;
 import guru.springframework.domain.Recipe;
 import guru.springframework.domain.UnitOfMeasure;
 import guru.springframework.repositories.CategoryRepository;
@@ -39,73 +40,54 @@ public class BootStrapData implements CommandLineRunner {
         UnitOfMeasure tablespoon = unitOfMeasureRepository.findByDescription("Tablespoon").get();
         UnitOfMeasure dash = unitOfMeasureRepository.findByDescription("Dash").get();
 
-        Ingredient advocados = new Ingredient();
-        advocados.setAmount(new BigDecimal(2));
-        advocados.setDescription("Advocado");
-        advocados.setUom(unit);
+        Notes guacNotes = new Notes();
+        guacNotes.setRecipeNotes("For a very quick guacamole just take a 1/4 cup of salsa and mix it in with your mashed avocados.\n" +
+                "Feel free to experiment! One classic Mexican guacamole has pomegranate seeds and chunks of peaches in it (a Diana Kennedy favorite). Try guacamole with added pineapple, mango, or strawberries.\n" +
+                "The simplest version of guacamole is just mashed avocados with salt. Don't let the lack of availability of other ingredients stop you from making guacamole.\n" +
+                "To extend a limited supply of avocados, add either sour cream or cottage cheese to your guacamole dip. Purists may be horrified, but so what? It tastes great.\n" +
+                "\n" +
+                "\n" +
+                "Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws");
+        guacNotes.setRecipe(perfectGuacamole);
+        perfectGuacamole.setNotes(guacNotes);
+
+        Ingredient advocados = new Ingredient("Advocado", new BigDecimal(2), unit, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(advocados);
 
-        Ingredient salt = new Ingredient();
-        salt.setAmount(new BigDecimal(0.25));
-        salt.setDescription("salt, more to taste");
-        salt.setUom(teaspoon);
+        Ingredient salt = new Ingredient("salt, more to taste", new BigDecimal(0.25), teaspoon, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(salt);
 
-        Ingredient limeJuice = new Ingredient();
-        limeJuice.setAmount(new BigDecimal(1));
-        limeJuice.setDescription("fresh lime juice or lemon juice");
-        limeJuice.setUom(tablespoon);
+        Ingredient limeJuice = new Ingredient("fresh lime juice or lemon juice", new BigDecimal(1), tablespoon, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(limeJuice);
 
-        Ingredient redOnion = new Ingredient();
-        redOnion.setAmount(new BigDecimal(2));
-        redOnion.setDescription("minced red onion or thinly sliced green onion");
-        redOnion.setUom(tablespoon);
+        Ingredient redOnion = new Ingredient("minced red onion or thinly sliced green onion", new BigDecimal(2), tablespoon, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(redOnion);
 
-        Ingredient serranoChiles = new Ingredient();
-        serranoChiles.setAmount(new BigDecimal(2));
-        serranoChiles.setDescription("serrano chiles, stems and seeds removed, minced");
-        serranoChiles.setUom(unit);
+        Ingredient serranoChiles = new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2), unit, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(serranoChiles);
 
-        Ingredient cilantro = new Ingredient();
-        cilantro.setAmount(new BigDecimal(2));
-        cilantro.setDescription("cilantro (leaves and tender stems), finely chopped");
-        cilantro.setUom(tablespoon);
+        Ingredient cilantro = new Ingredient("cilantro (leaves and tender stems), finely chopped", new BigDecimal(2), tablespoon, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(cilantro);
 
-        Ingredient blackPepper = new Ingredient();
-        blackPepper.setAmount(new BigDecimal(1));
-        blackPepper.setDescription("freshly grated black pepper");
-        blackPepper.setUom(dash);
+        Ingredient blackPepper = new Ingredient("freshly grated black pepper", new BigDecimal(1), dash, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(blackPepper);
 
-        Ingredient tomato = new Ingredient();
-        tomato.setAmount(new BigDecimal(0.5));
-        tomato.setDescription("ripe tomato, seeds and pulp removed, chopped");
-        tomato.setUom(unit);
+        Ingredient tomato = new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(0.5), unit, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(tomato);
 
-        Ingredient radish = new Ingredient();
-        radish.setAmount(new BigDecimal(1));
-        radish.setDescription("Red radishes or jicama, to garnish");
-        radish.setUom(unit);
+        Ingredient radish = new Ingredient("Red radishes or jicama, to garnish", new BigDecimal(1), unit, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(radish);
 
-        Ingredient torillaChips = new Ingredient();
-        torillaChips.setAmount(new BigDecimal(1));
-        torillaChips.setDescription("Tortilla chips, to serve");
-        torillaChips.setUom(unit);
+        Ingredient torillaChips = new Ingredient("Tortilla chips, to serve", new BigDecimal(1), unit, perfectGuacamole);
 
         perfectGuacamole.getIngredients().add(torillaChips);
 
