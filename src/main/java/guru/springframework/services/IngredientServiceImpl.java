@@ -134,7 +134,9 @@ public class IngredientServiceImpl implements IngredientService {
             throw new RuntimeException("Ingredient not found");
         }
 
-        recipe.getIngredients().remove(ingredientOptional.get());
+        Ingredient ingredientToDelete = ingredientOptional.get();
+        ingredientToDelete.setRecipe(null);
+        recipe.getIngredients().remove(ingredientToDelete);
 
         recipeRepository.save(recipe);
     }
